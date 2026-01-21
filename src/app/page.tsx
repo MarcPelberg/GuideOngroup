@@ -2,7 +2,6 @@
 
 import { useChat } from 'ai/react';
 import { Send, Loader2 } from 'lucide-react';
-import { useRef } from 'react';
 
 export default function Home() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, append } = useChat({
