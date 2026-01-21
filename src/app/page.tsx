@@ -32,105 +32,99 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-white">
-      {/* Enhanced Header */}
-      <header className="bg-gradient-to-r from-guideon-primary via-guideon-primary to-guideon-secondary text-white shadow-2xl border-b-4 border-guideon-accent">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+    <div className="flex flex-col h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Ultra Clean Header */}
+      <header className="bg-white border-b border-gray-200 backdrop-blur-xl bg-white/80 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-lg transform hover:scale-105 transition-transform">
-                <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#003366" stroke="#0066CC" strokeWidth="1.5"/>
-                  <path d="M2 17L12 22L22 17" stroke="#0066CC" strokeWidth="1.5" strokeLinecap="round"/>
-                  <path d="M2 12L12 17L22 12" stroke="#0066CC" strokeWidth="1.5" strokeLinecap="round"/>
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 bg-gradient-to-br from-guideon-primary to-guideon-secondary rounded-xl flex items-center justify-center shadow-sm">
+                <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white" opacity="0.9"/>
+                  <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7"/>
+                  <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.8"/>
                 </svg>
               </div>
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">GuideOn Group</h1>
-                <p className="text-sm text-blue-100 font-medium">AI-Powered Virtual Assistant • Available 24/7</p>
+                <h1 className="text-xl font-semibold text-gray-900">GuideOn Group</h1>
+                <p className="text-xs text-gray-500">Virtual Assistant</p>
               </div>
             </div>
-            <div className="hidden md:flex items-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4" />
-                <span className="text-blue-100">Trusted Partner</span>
+            <div className="hidden md:flex items-center gap-4 text-sm">
+              <div className="flex items-center gap-2 text-gray-600">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm">Available 24/7</span>
               </div>
-              <div className="text-xs bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                Demo • Built by Marc
+              <div className="text-xs text-gray-400 px-3 py-1 bg-gray-50 rounded-full">
+                Demo
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Chat Container */}
-      <div className="flex-1 overflow-hidden max-w-6xl w-full mx-auto px-4 py-6">
+      {/* Clean Chat Container */}
+      <div className="flex-1 overflow-hidden max-w-5xl w-full mx-auto px-6 py-8">
         <div className="h-full flex flex-col">
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto space-y-4 mb-4">
+          <div className="flex-1 overflow-y-auto space-y-6 mb-6 scroll-smooth">
             {messages.length === 0 && (
-              <div className="text-center py-8">
-                {/* Hero Section */}
-                <div className="mb-8">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-guideon-primary to-guideon-secondary rounded-2xl shadow-xl mb-4 transform hover:scale-105 transition-transform">
-                    <Truck className="w-10 h-10 text-white" />
+              <div className="text-center py-12">
+                {/* Minimal Hero */}
+                <div className="mb-12">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-guideon-primary to-guideon-secondary rounded-2xl shadow-sm mb-6">
+                    <Truck className="w-8 h-8 text-white" />
                   </div>
-                  <h2 className="text-3xl font-bold bg-gradient-to-r from-guideon-primary to-guideon-secondary bg-clip-text text-transparent mb-3">
-                    Welcome to GuideOn Group
+                  <h2 className="text-4xl font-bold text-gray-900 mb-3">
+                    Welcome to GuideOn
                   </h2>
-                  <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-2">
-                    Your trusted partner in transportation and logistics solutions
-                  </p>
-                  <p className="text-gray-500 text-sm">
-                    Get instant answers about freight quotes, carrier opportunities, and our services
+                  <p className="text-gray-600 text-lg max-w-xl mx-auto">
+                    Your intelligent logistics partner, available instantly
                   </p>
                 </div>
 
-                {/* Stats Grid */}
+                {/* Clean Stats Grid */}
                 {showStats && (
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-12">
                     {stats.map((stat, idx) => (
-                      <div key={idx} className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all border border-gray-100 hover:border-guideon-secondary transform hover:-translate-y-1">
-                        <stat.icon className={`w-6 h-6 ${stat.color} mx-auto mb-2`} />
-                        <div className="text-2xl font-bold text-guideon-primary">{stat.value}</div>
-                        <div className="text-xs text-gray-600 mt-1">{stat.label}</div>
+                      <div key={idx} className="bg-white rounded-2xl p-5 hover:shadow-lg transition-all border border-gray-100">
+                        <stat.icon className={`w-5 h-5 ${stat.color} mx-auto mb-3`} />
+                        <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
+                        <div className="text-xs text-gray-500 mt-1.5 font-medium">{stat.label}</div>
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* Quick Actions */}
-                <div className="max-w-4xl mx-auto">
-                  <h3 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
-                    How Can We Help You Today?
-                  </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {/* Sleek Quick Actions */}
+                <div className="max-w-3xl mx-auto">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5">
                     {quickActions.map((action, idx) => (
                       <button
                         key={idx}
                         onClick={() => handleQuickAction(action.message)}
-                        className="group flex flex-col items-center gap-3 p-4 bg-white hover:bg-gradient-to-br hover:from-guideon-primary hover:to-guideon-secondary text-guideon-primary hover:text-white rounded-xl shadow-md hover:shadow-2xl transition-all transform hover:-translate-y-1 border-2 border-transparent hover:border-guideon-accent"
+                        className="group flex flex-col items-center gap-2.5 p-4 bg-white hover:bg-gray-50 rounded-2xl transition-all border border-gray-200 hover:border-guideon-secondary hover:shadow-md"
                       >
-                        <action.icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                        <span className="text-sm font-medium text-center">{action.text}</span>
+                        <action.icon className="w-5 h-5 text-gray-400 group-hover:text-guideon-secondary transition-colors" />
+                        <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium text-center leading-snug">{action.text}</span>
                       </button>
                     ))}
                   </div>
                 </div>
 
-                {/* Trust Indicators */}
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-guideon-secondary" />
-                    <span>Industry-Leading Safety</span>
+                {/* Minimal Trust Badges */}
+                <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400">
+                  <div className="flex items-center gap-1.5">
+                    <Shield className="w-4 h-4" />
+                    <span>Industry Leading</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-guideon-secondary" />
-                    <span>24/7 Support</span>
+                  <div className="flex items-center gap-1.5">
+                    <Clock className="w-4 h-4" />
+                    <span>Always Available</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Target className="w-4 h-4 text-guideon-secondary" />
-                    <span>99% On-Time Delivery</span>
+                  <div className="flex items-center gap-1.5">
+                    <Target className="w-4 h-4" />
+                    <span>99% On-Time</span>
                   </div>
                 </div>
               </div>
@@ -142,27 +136,26 @@ export default function Home() {
                 className={`flex gap-3 animate-fadeIn ${
                   message.role === 'user' ? 'justify-end' : 'justify-start'
                 }`}
-                style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 {message.role === 'assistant' && (
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-guideon-primary to-guideon-secondary shadow-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-guideon-primary to-guideon-secondary flex items-center justify-center flex-shrink-0 shadow-sm">
                     <Truck className="w-5 h-5 text-white" />
                   </div>
                 )}
                 <div
-                  className={`max-w-[75%] rounded-2xl px-5 py-4 ${
+                  className={`max-w-[70%] rounded-2xl px-5 py-3.5 ${
                     message.role === 'user'
-                      ? 'bg-gradient-to-br from-guideon-secondary to-guideon-primary text-white shadow-lg'
-                      : 'bg-white text-gray-800 shadow-xl border-2 border-gray-100'
+                      ? 'bg-gradient-to-br from-guideon-primary to-guideon-secondary text-white shadow-sm'
+                      : 'bg-white text-gray-700 shadow-sm border border-gray-200'
                   }`}
                 >
-                  <p className="whitespace-pre-wrap text-sm leading-relaxed">
+                  <p className="whitespace-pre-wrap text-[15px] leading-relaxed">
                     {message.content}
                   </p>
                 </div>
                 {message.role === 'user' && (
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gray-200 to-gray-300 shadow-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-gray-700 text-sm font-bold">You</span>
+                  <div className="w-9 h-9 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                    <span className="text-gray-600 text-xs font-semibold">You</span>
                   </div>
                 )}
               </div>
@@ -170,33 +163,33 @@ export default function Home() {
 
             {isLoading && (
               <div className="flex gap-3 justify-start animate-fadeIn">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-guideon-primary to-guideon-secondary shadow-lg flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-guideon-primary to-guideon-secondary flex items-center justify-center shadow-sm">
                   <Truck className="w-5 h-5 text-white" />
                 </div>
-                <div className="bg-white rounded-2xl px-5 py-4 shadow-xl border-2 border-gray-100">
+                <div className="bg-white rounded-2xl px-5 py-3.5 shadow-sm border border-gray-200">
                   <div className="flex items-center gap-2">
-                    <Loader2 className="w-5 h-5 animate-spin text-guideon-primary" />
-                    <span className="text-sm text-gray-600">GuideOn is thinking...</span>
+                    <Loader2 className="w-4 h-4 animate-spin text-guideon-secondary" />
+                    <span className="text-sm text-gray-500">Thinking...</span>
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Enhanced Input Form */}
-          <div className="bg-white rounded-2xl shadow-2xl border-2 border-gray-200 p-2">
+          {/* Ultra Clean Input */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-1.5">
             <form onSubmit={handleSubmit} className="flex gap-2">
               <input
                 value={input}
                 onChange={handleInputChange}
-                placeholder="Ask about freight quotes, services, carrier opportunities..."
-                className="flex-1 px-5 py-4 rounded-xl border-2 border-transparent focus:border-guideon-secondary focus:outline-none bg-gray-50 text-gray-800 placeholder-gray-400 transition-all"
+                placeholder="Ask about freight quotes, services, or carrier opportunities..."
+                className="flex-1 px-5 py-3.5 rounded-xl focus:outline-none bg-transparent text-gray-900 placeholder-gray-400"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="px-6 py-4 bg-gradient-to-r from-guideon-secondary to-guideon-primary text-white rounded-xl hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2 font-semibold"
+                className="px-5 py-3.5 bg-gradient-to-r from-guideon-primary to-guideon-secondary text-white rounded-xl hover:shadow-md disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-2 font-medium"
               >
                 {isLoading ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
@@ -208,52 +201,31 @@ export default function Home() {
                 )}
               </button>
             </form>
-            <div className="flex items-center justify-center gap-4 mt-2 text-xs text-gray-400">
-              <span className="flex items-center gap-1">
-                <Shield className="w-3 h-3" />
-                Secure
-              </span>
-              <span className="flex items-center gap-1">
-                <Clock className="w-3 h-3" />
-                Instant Response
-              </span>
-              <span className="flex items-center gap-1">
-                <Users className="w-3 h-3" />
-                Human Follow-up
-              </span>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Footer */}
-      <footer className="bg-gradient-to-r from-gray-50 to-white border-t-2 border-gray-200 py-6">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-600">
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-guideon-primary" />
-              <span>© 2026 GuideOn Group • All Rights Reserved</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3 h-3" />
-                18 Terminals Nationwide
+      {/* Minimal Footer */}
+      <footer className="bg-white border-t border-gray-200 py-5">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+            <div className="flex items-center gap-6">
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5" />
+                18 Terminals
               </span>
-              <span className="flex items-center gap-1">
-                <Users className="w-3 h-3" />
-                19,000+ Carriers
+              <span className="flex items-center gap-1.5">
+                <Users className="w-3.5 h-3.5" />
+                19K+ Carriers
               </span>
-              <span className="flex items-center gap-1">
-                <Target className="w-3 h-3" />
+              <span className="flex items-center gap-1.5">
+                <Target className="w-3.5 h-3.5" />
                 99% On-Time
               </span>
             </div>
             <div className="text-gray-400">
-              Demo • Built by Marc
+              © 2026 GuideOn Group
             </div>
-          </div>
-          <div className="text-center mt-4 text-xs text-gray-400">
-            AI-powered virtual assistant demonstrating GuideOn Group&apos;s customer service capabilities
           </div>
         </div>
       </footer>
