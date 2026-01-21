@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --guideon-primary: #003366;
+  --guideon-secondary: #0066CC;
+  --guideon-accent: #FF6600;
+}
+
+body {
+  @apply bg-guideon-light text-gray-900;
+}
