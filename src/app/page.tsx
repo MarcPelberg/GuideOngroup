@@ -51,7 +51,7 @@ export default function Home() {
                   Welcome to GuideOn Group
                 </h2>
                 <p className="text-gray-600 mb-6">
-                  I'm here to help with freight quotes, carrier information, and any questions about our services.
+                  I&apos;m here to help with freight quotes, carrier information, and any questions about our services.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
                   <button
