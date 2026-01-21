@@ -50,9 +50,9 @@ git push -u origin main
 
 ## 📚 Quick Reference
 
+- **Meeting Prep:** See [`MEETING_PREP_INDEX.md`](./MEETING_PREP_INDEX.md) ⭐ **START HERE FOR MEETING**
 - **Quick Deploy:** See `DEPLOY_NOW.md`
 - **Full Guide:** See `DEPLOYMENT.md`
-- **Meeting Prep:** See `MEETING_NOTES.md`
 - **Status:** See `COMPLETE_STATUS.md`
 
 ## 🎉 Summary
