@@ -50,8 +50,15 @@ export default function Home() {
                 <p className="text-xs text-gray-500">Virtual Assistant</p>
               </div>
             </div>
-            <div className="hidden md:flex items-center gap-4 text-sm">
-              <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-4 text-sm">
+              <a 
+                href="/opportunities" 
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-guideon-primary to-guideon-secondary text-white rounded-full hover:shadow-md transition-all font-medium"
+              >
+                <TrendingUp className="w-4 h-4" />
+                <span className="hidden sm:inline">AI Opportunities</span>
+              </a>
+              <div className="hidden md:flex items-center gap-2 text-gray-600">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-sm">Available 24/7</span>
               </div>
