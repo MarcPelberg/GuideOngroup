@@ -1,6 +1,7 @@
 import { streamText } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { GUIDEON_SYSTEM_PROMPT } from '@/lib/guideon-context';
+import { findNewLeadEmail, reportChatbotLeadToMarkCompass } from '@/lib/markcompass-intake';
 
 export const runtime = 'edge';
 export const maxDuration = 30; // 30 seconds max for edge runtime
@@ -15,6 +16,25 @@ export async function POST(req: Request) {
         JSON.stringify({ error: 'Invalid messages format' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
+    }
+
+    // The chatbot has no structured contact-capture output — it just asks
+    // for an email conversationally per GUIDEON_SYSTEM_PROMPT. Detect a
+    // newly-provided email in the raw message text and mirror the lead to
+    // MarkCompass. This is fire-and-forget: it must never block or fail the
+    // chat response, so we deliberately don't `await` it here.
+    const lead = findNewLeadEmail(messages);
+    if (lead) {
+      const landingPage =
+        req.headers.get('referer') ?? req.headers.get('origin') ?? undefined;
+      reportChatbotLeadToMarkCompass({
+        email: lead.email,
+        name: lead.name,
+        landingPage,
+      }).catch(() => {
+        // reportChatbotLeadToMarkCompass already swallows its own errors;
+        // this catch is just a last-resort safety net.
+      });
     }
 
     const result = await streamText({
